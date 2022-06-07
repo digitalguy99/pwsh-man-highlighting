@@ -1,2 +1,29 @@
 # pwsh-man-highlighting
 Coloring PowerShell manual pages.
+
+![Preview](https://urlzs.com/LnxRN)
+
+## Installation
+---
+Clone the repository to local machine:
+
+```
+git clone https://github.com/digitalguy99/pwsh-syntax-highlighting.git
+```
+
+Use `cd` to navigate to local repository: 
+
+```
+cd <path of directory>
+```
+
+Put `man.ps1` in your `$env:PATH` directory:
+
+```
+mv man.ps1 <$env:PATH directory>
+```
+
+Execute the program:
+
+```
+man <name of cmdlet>
