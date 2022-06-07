@@ -4,7 +4,7 @@ Coloring PowerShell manual pages.
 ![Preview](https://drive.google.com/uc?export=view&id=1xXwtodqskb58fgDpSTUlxo1XYTm01GEs)
 
 ## Installation
----
+
 Clone the repository to local machine:
 
 ```
