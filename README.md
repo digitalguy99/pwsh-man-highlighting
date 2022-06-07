@@ -1,7 +1,7 @@
 # pwsh-man-highlighting
 Coloring PowerShell manual pages.
 
-![Preview](https://urlzs.com/LnxRN)
+![Preview](https://drive.google.com/uc?export=view&id=1xXwtodqskb58fgDpSTUlxo1XYTm01GEs)
 
 ## Installation
 ---
