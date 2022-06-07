@@ -8,7 +8,7 @@ Coloring PowerShell manual pages.
 Clone the repository to local machine:
 
 ```
-git clone https://github.com/digitalguy99/pwsh-syntax-highlighting.git
+git clone https://github.com/digitalguy99/pwsh-man-highlighting.git
 ```
 
 Use `cd` to navigate to local repository: 
@@ -27,3 +27,4 @@ Execute the program:
 
 ```
 man <name of cmdlet>
+```
