@@ -29,6 +29,12 @@ Coloring PowerShell manual pages.
    ```
    
    so you don't have to import the module every time you open PowerShell.
+   
+4. Execute the program:
+   
+   ```pwsh
+   Get-Help <name of cmdlet>
+   ```
 
 ### Other PowerShell Versions
 ---
