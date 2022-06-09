@@ -5,26 +5,54 @@ Coloring PowerShell manual pages.
 
 ## Installation & Usage
 
-Clone the repository to local machine:
+### PowerShell 7.2 and Up
+---
 
-```
-git clone https://github.com/digitalguy99/pwsh-man-highlighting.git
-```
+1. Run PowerShell as Administrator.
 
-Use `cd` to navigate to local repository: 
+2. Execute the following command:
 
-```
-cd <path of directory>
-```
+    ```pwsh
+    Install-Module man-highlighting
+    ```
+ 
+3. Restart PowerShell and run:
 
-Put `man.ps1` in your `$env:PATH` directory:
+   ```pwsh
+   Import-Module man-highlighting
+   ```
+   
+   or simply:
+   
+   ```pwsh
+   echo "Import-Module man-highlighting" >> $profile
+   ```
+   
+   so you don't have to import the module every time you open PowerShell.
 
-```
-mv man.ps1 <$env:PATH directory>
-```
+### Other PowerShell Versions
+---
 
-Execute the program:
+1. Clone the repository to local machine:
 
-```
-man <name of cmdlet>
-```
+   ```pwsh
+   git clone https://github.com/digitalguy99/pwsh-man-highlighting.git
+   ```
+
+2. Use `cd` to navigate to local repository: 
+
+   ```pwsh
+   cd <path of directory>
+   ```
+
+3. Put `man.ps1` in your `$env:PATH` directory:
+
+   ```pwsh
+   mv man.ps1 <$env:PATH directory>
+   ```
+
+4. Execute the program:
+
+   ```pwsh
+   man <name of cmdlet>
+   ```
