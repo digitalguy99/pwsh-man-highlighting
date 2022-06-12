@@ -15,6 +15,12 @@ Coloring PowerShell manual pages.
     ```pwsh
     Install-Module man-highlighting
     ```
+    
+    and if you face any errors running that command, run:
+    
+    ```pwsh
+    Install-Module man-highlighting -AllowClobber
+    ```
  
 3. Restart PowerShell and run:
 
