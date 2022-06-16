@@ -38,17 +38,35 @@ Function Get-Help {
     )
 
     process {
-        $sectionStyle = $PSStyle.Foreground.FromRgb(239,155,64)
-        $commandStyle = $PSStyle.Foreground.BrightYellow
-        $paramStyle   = $PSStyle.Foreground.FromRgb(160,199,75)
-        $reset        = $PSStyle.Reset
+        # Get the resolved command in case an alias has been passed
+        $commandName = if( $Name ) { (Get-Command $Name).ForEach{ $_.ResolvedCommandName ?? $_.Name } }
+                       else { 'Get-Help' }
 
-        $command = (Get-Command $Name).ResolvedCommandName ?? $Name
+        # Escape command name for use in RegEx pattern
+        $commandNameEscaped = [regex]::Escape( $commandName )
 
+        # The styles to apply
+        $style = @{
+            SECTION = $PSStyle.Foreground.FromRgb(239,155,64)
+            COMMAND = $PSStyle.Foreground.BrightYellow
+            PARAM   = $PSStyle.Foreground.FromRgb(160,199,75)
+        }
+
+        # Patterns with named capturing groups that match the $style keys
+        $regEx = @(
+            "(?m)(?<=^[ \t]*)(?<SECTION>[A-Z][A-Z \t\d\W]+$)"
+            "(?<COMMAND>\b$commandNameEscaped\b)"
+            "(?<PARAM>\B-\w+)"
+        ) -join '|'
+
+        # Call the original Get-Help command
         Microsoft.PowerShell.Core\Get-Help @PSBoundParameters | Out-String | ForEach-Object {
-            $_ -creplace "(?m)^[A-Z \d\W]+$", "$sectionStyle`$0$reset" `
-               -replace "\b$command\b",       "$commandStyle`$0$reset" `
-               -replace "\B-\w+",             "$paramStyle`$0$reset"
+            [regex]::Replace( $_, $regEx, {  
+                # Get the RegEx group that has matched.
+                $matchGroup = $args.Groups.Where{ $_.Success }[ 1 ]
+                # Use the RegEx group name to select associated style for colorizing the match.
+                $style[ $matchGroup.Name ] + $matchGroup.Value + $PSStyle.Reset
+            })
         }
     }
 }

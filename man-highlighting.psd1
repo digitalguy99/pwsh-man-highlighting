@@ -12,7 +12,7 @@
 RootModule = '.\man-highlighting.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.3.3'
+ModuleVersion = '1.7.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
