@@ -47,9 +47,9 @@ Function Get-Help {
 
         # The styles to apply
         $style = @{
-            SECTION = $PSStyle.Foreground.FromRgb(239,155,64)
+            SECTION = $PSStyle.Formatting.FormatAccent
             COMMAND = $PSStyle.Foreground.BrightYellow
-            PARAM   = $PSStyle.Foreground.FromRgb(160,199,75)
+            PARAM   = $PSStyle.Foreground.FromRgb(64,200,230)
         }
 
         # Patterns with named capturing groups that match the $style keys
