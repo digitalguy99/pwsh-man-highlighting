@@ -104,7 +104,7 @@ PrivateData = @{
         ProjectUri = 'https://github.com/digitalguy99/pwsh-man-highlighting'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://raw.githubusercontent.com/digitalguy99/pwsh-man-highlighting/main/icon.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
