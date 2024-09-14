@@ -73,6 +73,6 @@ Coloring PowerShell manual pages.
 
 <table>
   <tr>
-    <td align="center"><a href="https://stackoverflow.com/users/7571258/zett42" target="_blank"><img src="https://i.stack.imgur.com/fBP6e.png?s=256&g=1" width="100px;" alt=""/><br /><sub><b>zett42</b></sub></a><br /></td>
+    <td align="center"><a href="https://stackoverflow.com/users/7571258/zett42" target="_blank"><img src="https://i.sstatic.net/fBP6e.png?s=256" width="100px;" alt=""/><br /><sub><b>zett42</b></sub></a><br /></td>
   </tr>
 </table>
