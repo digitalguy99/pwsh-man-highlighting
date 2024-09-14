@@ -1,0 +1,36 @@
+name: Update Avatars in README.md
+
+on: [workflow_dispatch]
+
+jobs:
+  update:
+    runs-on: windows-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v4
+      -
+        name: Get new Avatar URL
+        id: fetch_new_url
+        run: |
+          $response = Invoke-RestMethod -Uri "https://api.stackexchange.com/2.1/users/7571258?order=desc&sort=reputation&site=stackoverflow&filter=!*N1O2t9FKJv(Hwn5"
+          $profile_img_url = $response.items[0].profile_image
+          echo "::set-output name=img_url::$profile_img_url"
+      -
+        name: Replace old URL with New
+        run: |
+          $file_path = "README.md"
+          $new_url = ${{ steps.fetch_new_url.outputs.img_url }}
+          $content = Get-Content -Path $file_path
+          $updated_content = $content -replace 'src="https://[^"]*"', "src=`"$new_url`""
+          Set-Content -Path $file_path -Value $updated_content
+      -
+        name: Push changes
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git commit -am "Updated avatar on README.md"
+          git push
+
+
+          
