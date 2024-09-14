@@ -13,7 +13,7 @@ jobs:
         name: Get new Avatar URL
         id: fetch_new_url
         run: |
-          $response = Invoke-RestMethod -Uri "https://api.stackexchange.com/2.1/users/7571258?order=desc&sort=reputation&site=stackoverflow&filter=!*N1O2t9FKJv(Hwn5"
+          $response = Invoke-RestMethod -Uri "${{ vars.STACK_OVERFLOW_API }}"
           $profile_img_url = $response.items[0].profile_image
           echo "::set-output name=img_url::$profile_img_url"
       -
@@ -31,6 +31,3 @@ jobs:
           git config user.name "github-actions[bot]"
           git commit -am "Updated avatar on README.md"
           git push
-
-
-          
