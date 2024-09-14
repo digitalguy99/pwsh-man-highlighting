@@ -20,7 +20,7 @@ jobs:
         name: Replace old URL with New
         run: |
           $file_path = "README.md"
-          $new_url = ${{ steps.fetch_new_url.outputs.img_url }}
+          $new_url = "${{ steps.fetch_new_url.outputs.img_url }}"
           $content = Get-Content -Path $file_path
           $updated_content = $content -replace 'src="https://[^"]*"', "src=`"$new_url`""
           Set-Content -Path $file_path -Value $updated_content
